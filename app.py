@@ -9,7 +9,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import TweetTokenizer
 import preprocessor as p
-from preprocessor import api
+
 lemmatizer = WordNetLemmatizer()
 import pickle
 
@@ -29,7 +29,7 @@ def predict():
 		message = request.form['message']
 		
 		data = [message]
-		show=api.clean(message)		
+		show= p.clean(message)		
 		show=re.sub(r'[0-9]+','',show)
 		show=re.sub(r'[^\w\s]','',show)
 		show = show.lower()
