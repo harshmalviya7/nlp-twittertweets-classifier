@@ -3,7 +3,7 @@ from flask import Flask,render_template,url_for,request
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -19,7 +19,9 @@ clf = pickle.load(open(filename, 'rb'))
 cv=pickle.load(open('tranform.pkl','rb'))
 app = Flask(__name__)
 cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
+@cross_origin()
 def home():
 	return render_template('index.html')
 @app.route('/predict',methods=['POST'])
