@@ -18,7 +18,7 @@ filename = 'nlp_model.pkl'
 clf = pickle.load(open(filename, 'rb'))
 cv=pickle.load(open('tranform.pkl','rb'))
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
 @cross_origin()
