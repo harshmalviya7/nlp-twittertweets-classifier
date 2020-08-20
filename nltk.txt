@@ -1,3 +1,3 @@
 wordnet
 stopwords
-TweetTokenizer
+stem
