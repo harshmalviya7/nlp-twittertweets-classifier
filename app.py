@@ -8,7 +8,8 @@ import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import TweetTokenizer
-import preprocessor as p
+import preprocessor.api as p
+from preprocessor.api import clean, tokenize, parse
 lemmatizer = WordNetLemmatizer()
 import pickle
 
