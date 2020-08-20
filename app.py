@@ -27,7 +27,7 @@ def predict():
 	if request.method == 'POST':
 		message = request.form['message']
 		data = [message]
-		show=p.clean(message)
+		show=preprocessor.clean(message)
 		show=re.sub(r'[0-9]+','',show)
 		show=re.sub(r'[^\w\s]','',show)
 		show = show.lower()
