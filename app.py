@@ -3,7 +3,7 @@ from flask import Flask,render_template,url_for,request
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
-
+from flask_cors import CORS
 import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
@@ -18,7 +18,7 @@ filename = 'nlp_model.pkl'
 clf = pickle.load(open(filename, 'rb'))
 cv=pickle.load(open('tranform.pkl','rb'))
 app = Flask(__name__)
-
+cors = CORS(app)
 @app.route('/')
 def home():
 	return render_template('index.html')
